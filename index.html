@@ -12,10 +12,84 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <link rel="manifest" href="/manifest.json" class="" />
   </head>
-  <body>
-    <h1>Ahihi</h1>
-    <a href="#" class="btn btn-primary">Click me</a>
-  </body>
+  <div class="container">
+    <div class="app">
+      <body>
+        <form>
+          <div class="row">
+            <div class="col-9">
+              <input
+                class="search-input"
+                type="search"
+                placeholder="Enter a city"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                class="btn btn-primary w-100"
+                value="Search"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-9">
+            <h1 class="cityname">Tsukuba</h1>
+            <h2 class="timestamps">
+              Saturday 13:30<span>, </span><span class="describe">sunny</span>
+              <div>
+                Humidity: <span class="strong" id="humidity">90%</span>, Wind:
+                <span class="strong" id="wind">11.18km/h</span>
+              </div>
+            </h2>
+          </div>
+          <div class="col-3">
+            <div><span class="temp">12</span><span class="unit">°C</span></div>
+          </div>
+        </div>
+        <div class="row">
+          <ul>
+            <li class="1st">
+              Sat
+              <div class="1stmax">16°</div>
+              <div class="1stmin">12°</div>
+            </li>
+            <li class="2nd">
+              Sun
+              <div class="2ndmax">16°</div>
+              <div class="2ndmin">12°</div>
+            </li>
+            <li class="3rd">
+              Mon
+              <div class="3rdmax">16°</div>
+              <div class="3rdmin">12°</div>
+            </li>
+            <li class="4th">
+              Tue
+              <div class="4thmax">16°</div>
+              <div class="4thmin">12°</div>
+            </li>
+            <li class="5th">
+              Wed
+              <div class="5thmax">16°</div>
+              <div class="5thmin">12°</div>
+            </li>
+          </ul>
+        </div>
+      </body>
+      <footer>
+        This page is coded by
+        <a href="https://www.instagram.com/huong_shiho/" target="_blank"
+          >Huong Shiho</a
+        >
+        and is open-sourced on <a href="#" target="_blank">GitHub</a> and hosted
+        on
+        <a href="#" target="_blank">Netlify</a>
+      </footer>
+    </div>
+  </div>
   <script src="src/app.js"></script>
 </html>
