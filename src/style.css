@@ -85,3 +85,7 @@ form {
   position: relative;
   top: -34px;
 }
+.image {
+  position: relative;
+  margin-top: -15px;
+}
