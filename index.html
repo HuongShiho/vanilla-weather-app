@@ -12,18 +12,20 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-    <link rel="manifest" href="/manifest.json" class="" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <div class="container">
     <div class="app">
       <body>
         <form>
           <div class="row">
-            <div class="col-9">
+            <div class="col-6">
               <input
                 class="search-input"
                 type="search"
                 placeholder="Enter a city"
+                autofocus="on"
+                id="city-input"
               />
             </div>
             <div class="col-3">
@@ -31,15 +33,24 @@
                 type="submit"
                 class="btn btn-primary w-100"
                 value="Search"
+                id="search-city"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                id="current-button"
+                class="btn btn-primary w-100"
+                value="Current"
               />
             </div>
           </div>
         </form>
         <div class="row">
           <div class="col-9">
-            <h1 class="cityname">Tsukuba</h1>
-            <h2 class="timestamps">
-              Saturday 13:30<span>, </span><span class="describe">sunny</span>
+            <h1 class="cityname" id="city">Tsukuba</h1>
+            <h2 class="overview">
+              <span id="timestamps">Saturday 13:30</span>,
+              <span class="describe" id="describe">sunny</span>
               <div>
                 Humidity: <span class="strong" id="humidity">90%</span>, Wind:
                 <span class="strong" id="wind">11.18km/h</span>
@@ -47,7 +58,9 @@
             </h2>
           </div>
           <div class="col-3">
-            <div><span class="temp">12</span><span class="unit">°C</span></div>
+            <div>
+              <span class="temp" id="temp">12</span><span class="unit">°C</span>
+            </div>
           </div>
         </div>
         <div class="row">

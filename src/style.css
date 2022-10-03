@@ -1,3 +1,13 @@
+.container .app {
+  margin: 60px auto;
+  max-width: 700px;
+  padding: 40px;
+  background: #ffffff;
+  font-family: "Cerebri-Sans", Helvetica, Arial, sans-serif;
+  border-radius: 16px;
+  box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.6);
+  color: rgb(135, 135, 135);
+}
 .search-input {
   background: #e7e2f3;
   border: none;
@@ -35,23 +45,15 @@ ul {
 }
 li {
   display: inline-block;
-  min-width: 7em;
+  min-width: 6em;
 }
-.container {
-  margin: 60px auto;
-  background: #ffffff;
-  font-family: "Cerebri-Sans", Helvetica, Arial, sans-serif;
-  border-radius: 16px;
-  box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.6);
-  padding: 40px;
-  color: rgb(135, 135, 135);
-}
+
 form {
   border-bottom: 1px solid #f9f7fe;
   padding-bottom: 30px;
 }
 
-.timestamps {
+.overview {
   margin: 0;
   padding: 0;
   font-weight: 500;
@@ -64,10 +66,6 @@ form {
 .strong {
   color: #f65282;
   font-weight: normal;
-}
-
-.container .app {
-  padding: 20px;
 }
 
 .temp {
