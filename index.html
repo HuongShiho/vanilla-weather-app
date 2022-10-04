@@ -21,11 +21,12 @@
           <div class="row">
             <div class="col-6">
               <input
-                class="search-input"
+                class="search-input form-control"
                 type="search"
                 placeholder="Enter a city"
                 autofocus="on"
                 id="city-input"
+                autocomplete="off"
               />
             </div>
             <div class="col-3">
@@ -46,7 +47,7 @@
           </div>
         </form>
         <div class="row">
-          <div class="col-7">
+          <div class="col-6">
             <h1 class="cityname" id="city">Tsukuba</h1>
             <h2 class="overview">
               <span id="timestamps">Saturday 13:30</span>,
@@ -57,14 +58,21 @@
               </div>
             </h2>
           </div>
-          <div class="col-2">
-            <div class="image">
-              <img src="" alt="" id="icon" />
-            </div>
-          </div>
-          <div class="col-3">
-            <div>
-              <span class="temp" id="temp">12</span><span class="unit">°C</span>
+          <div class="col-6">
+            <div class="temperature-container d-flex justify-content-end">
+              <div class="image">
+                <img src="" alt="" id="icon" />
+              </div>
+              <div>
+                <span class="temp" id="temp">11</span>
+                <div class="unit">
+                  <span
+                    ><a href="#" id="celsius-click" class="active">°C</a>
+                    |</span
+                  >
+                  <span><a href="#" id="fahrenheit-click">°F</a></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

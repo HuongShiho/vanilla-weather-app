@@ -33,9 +33,8 @@ function showCity(response) {
   document.querySelector("#describe").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsius = response.data.main.temp;
+  document.querySelector("#temp").innerHTML = Math.round(celsius);
   document.querySelector("#timestamps").innerHTML = showDate(
     response.data.dt * 1000
   );
@@ -69,6 +68,33 @@ function myLocation(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=metric`;
   axios.get(url).then(showCity);
 }
+//show Fahrenheit
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let Fahrenheit = document.querySelector("#temp");
+  Fahrenheit.innerHTML = Math.round((celsius * 9) / 5 + 32);
+  celsiusConvert.classList.remove("active");
+  fahrenheitConvert.classList.add("active");
+}
+
+//show Celsius
+function displayCelsius(event) {
+  event.preventDefault();
+  let Celsius = document.querySelector("#temp");
+  Celsius.innerHTML = Math.round(celsius);
+  celsiusConvert.classList.add("active");
+  fahrenheitConvert.classList.remove("active");
+}
+
+//change unit
+let celsius = null;
+let fahrenheitConvert = document.querySelector("#fahrenheit-click");
+fahrenheitConvert.addEventListener("click", displayFahrenheit);
+
+let celsiusConvert = document.querySelector("#celsius-click");
+celsiusConvert.addEventListener("click", displayCelsius);
+
+//call function
 let city = document.querySelector("form");
 city.addEventListener("submit", handleSubmit);
 navigator.geolocation.getCurrentPosition(myLocation);

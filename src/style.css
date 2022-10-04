@@ -1,6 +1,7 @@
 .container .app {
   margin: 60px auto;
   max-width: 700px;
+
   padding: 40px;
   background: #ffffff;
   font-family: "Cerebri-Sans", Helvetica, Arial, sans-serif;
@@ -8,18 +9,7 @@
   box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.6);
   color: rgb(135, 135, 135);
 }
-.search-input {
-  background: #e7e2f3;
-  border: none;
-  padding: 15px 20px;
-  display: inline-block;
-  border-radius: 6px;
-  color: rgba(39, 33, 66, 0.4);
-  font-size: 16px;
-  height: 50px;
-  line-height: 20px;
-  width: 100%;
-}
+
 .container .btn {
   background: #885df1;
   font-weight: bold;
@@ -27,6 +17,15 @@
   padding: 15px 0;
   border: none;
   height: 50px;
+}
+.container .search-input {
+  padding: 15px 20px;
+  display: inline-block;
+  border-radius: 6px;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  height: 50px;
+  width: 100%;
 }
 
 .cityname {
@@ -70,22 +69,23 @@ form {
 
 .temp {
   color: #212121;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 400;
   font-weight: 700;
-  line-height: 1;
-  margin-left: -20px;
 }
 
 .unit {
   color: #212121;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 36px;
-  position: relative;
-  top: -34px;
+  line-height: 0px;
+  cursor: pointer;
 }
-.image {
-  position: relative;
-  margin-top: -15px;
+.container .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.container .active:hover {
+  text-decoration: none;
 }
