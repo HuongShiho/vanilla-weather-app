@@ -36,16 +36,6 @@
   line-height: 48px;
   color: #272142;
 }
-ul {
-  list-style: none;
-  text-align: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f9f7fe;
-}
-li {
-  display: inline-block;
-  min-width: 6em;
-}
 
 form {
   border-bottom: 1px solid #f9f7fe;
@@ -88,4 +78,26 @@ form {
 }
 .container .active:hover {
   text-decoration: none;
+}
+.container .max-temp {
+  color: #f65282;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.week-day {
+  margin-top: 10px;
+  color: rgba(39, 33, 66, 0.7);
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+}
+.container .min-temp {
+  color: #f65282;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+  opacity: 0.6;
 }

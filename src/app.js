@@ -25,7 +25,7 @@ function showDate() {
 //Search engine: show city
 let APIkey = "c95d60a1e3adbeb286133f1ebebc2579";
 function showCity(response) {
-  console.log(response.data);
+  //real time local data
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;
@@ -47,7 +47,35 @@ function showCity(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+  //forecast data
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `   
+        <div class="col-2">
+          <div class="week-day">
+              ${day}
+              <div class="image">
+                <img
+                  src="http://openweathermap.org/img/wn/10n@2x.png"
+                  alt=""
+                  id="icon"
+                />
+              </div>
+              <span class="max-temp">16°</span>
+              <span class="min-temp">12°</span>
+            </div>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
+
 function getURL(cityInput) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${APIkey}&units=metric`;
   axios.get(url).then(showCity);
@@ -94,7 +122,6 @@ fahrenheitConvert.addEventListener("click", displayFahrenheit);
 let celsiusConvert = document.querySelector("#celsius-click");
 celsiusConvert.addEventListener("click", displayCelsius);
 
-//call function
 let city = document.querySelector("form");
 city.addEventListener("submit", handleSubmit);
 navigator.geolocation.getCurrentPosition(myLocation);
