@@ -23,7 +23,7 @@ function showDate() {
 }
 
 //Search engine: show city
-let APIkey = "c95d60a1e3adbeb286133f1ebebc2579";
+let APIkey = "5863935ee9cca4c02ed68203f807c65b";
 function showCity(response) {
   //real time local data
   document.querySelector(
@@ -54,34 +54,44 @@ function showCity(response) {
 function getForecast(forecast) {
   let lat = forecast.lat;
   let lon = forecast.lon;
-  let key = "5863935ee9cca4c02ed68203f807c65b";
-  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${APIkey}&units=metric`;
   axios.get(url).then(displayForecast);
 }
 
-function displayForecast() {
+function formatForecastDay(timestamps) {
+  let day = new Date(timestamps * 1000);
+  day = day.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `   
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `   
         <div class="col-2">
           <div class="week-day">
-              ${day}
+              ${formatForecastDay(forecastDay.dt)}
               <div class="image">
                 <img
-                  src="http://openweathermap.org/img/wn/10n@2x.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
                   alt=""
                   id="icon"
                 />
               </div>
-              <span class="max-temp">16°</span>
-              <span class="min-temp">12°</span>
+              <span class="max-temp">${Math.round(forecastDay.temp.max)}°</span>
+              <span class="min-temp">${Math.round(forecastDay.temp.min)}°</span>
             </div>
           </div>
         `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -134,8 +144,9 @@ fahrenheitConvert.addEventListener("click", displayFahrenheit);
 let celsiusConvert = document.querySelector("#celsius-click");
 celsiusConvert.addEventListener("click", displayCelsius);
 
+getURL("Tsukuba");
 let city = document.querySelector("form");
 city.addEventListener("submit", handleSubmit);
-navigator.geolocation.getCurrentPosition(myLocation);
+/*navigator.geolocation.getCurrentPosition(myLocation);*/
 let current = document.querySelector("#current-button");
 current.addEventListener("click", getLocation);
