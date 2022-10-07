@@ -109,10 +109,8 @@ function handleSubmit(event) {
 }
 function getLocation() {
   navigator.geolocation.getCurrentPosition(myLocation);
-  myLocation();
 }
 function myLocation(position) {
-  // console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=metric`;
