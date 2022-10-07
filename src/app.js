@@ -122,6 +122,5 @@ function myLocation(position) {
 getURL("Tsukuba");
 let city = document.querySelector("form");
 city.addEventListener("submit", handleSubmit);
-/*navigator.geolocation.getCurrentPosition(myLocation);*/
 let current = document.querySelector("#current-button");
 current.addEventListener("click", getLocation);
