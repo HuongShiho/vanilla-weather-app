@@ -118,31 +118,6 @@ function myLocation(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=metric`;
   axios.get(url).then(showCity);
 }
-//show Fahrenheit
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let Fahrenheit = document.querySelector("#temp");
-  Fahrenheit.innerHTML = Math.round((celsius * 9) / 5 + 32);
-  celsiusConvert.classList.remove("active");
-  fahrenheitConvert.classList.add("active");
-}
-
-//show Celsius
-function displayCelsius(event) {
-  event.preventDefault();
-  let Celsius = document.querySelector("#temp");
-  Celsius.innerHTML = Math.round(celsius);
-  celsiusConvert.classList.add("active");
-  fahrenheitConvert.classList.remove("active");
-}
-
-//change unit
-let celsius = null;
-let fahrenheitConvert = document.querySelector("#fahrenheit-click");
-fahrenheitConvert.addEventListener("click", displayFahrenheit);
-
-let celsiusConvert = document.querySelector("#celsius-click");
-celsiusConvert.addEventListener("click", displayCelsius);
 
 getURL("Tsukuba");
 let city = document.querySelector("form");
